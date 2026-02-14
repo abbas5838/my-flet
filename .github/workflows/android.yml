@@ -1,37 +1,17 @@
-name: Build Flet APK
+name: Upload Existing APK
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
-  build:
+  upload:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Upgrade pip and install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Install Flet CLI
-        run: |
-          python -m pip install --upgrade flet
-
-      - name: Build Flet APK
-        run: |
-          yes | flet build apk --verbose
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/apk/*.apk
