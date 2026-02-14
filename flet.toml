@@ -1,0 +1,5 @@
+[build]
+project_name = "myapp"
+product_name = "riazi1"
+icon = "main.ico"         # مسیر آیکن نسبت به روت پروژه
+assets = ["assets"]       # لیست فولدرها یا فایل‌هایی که باید داخل APK باشند
