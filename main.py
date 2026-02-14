@@ -57,17 +57,13 @@ def main(page: ft.Page):
     # -------------------------
     # صدا
     # -------------------------
-    if getattr(sys, "frozen", False):
-        beep_src = resource_path("beep.mp3")
-    else:
-        beep_src = "beep.mp3"
-
-    page.beep = ft.Audio(src=beep_src)
+    page.beep = ft.Audio(src="assets/beep.mp3")
     page.overlay.append(page.beep)
 
     def play_beep():
         page.beep.play()
         page.update()
+
 
     # -------------------------
     # افکت فواره‌ای ستاره‌ها (نسخه نهایی گزینه ۳)
@@ -849,3 +845,4 @@ def main(page: ft.Page):
 
 
 ft.app(target=main)
+
