@@ -25,10 +25,10 @@ jobs:
       - name: Build Flet APK
         run: |
           yes | flet build apk \
-          --project-name myapp \
-          --product riazi1 \
-          --icon main.ico \
-          --assets assets \
+          project_name = "myapp"
+          product_name = "riazi1"
+          icon = "main.ico"
+          assets = ["assets"]
           --verbose
 
       - name: Upload APK artifact
