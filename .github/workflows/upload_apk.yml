@@ -1,0 +1,21 @@
+name: Upload Existing APK
+
+# این workflow فقط به صورت دستی قابل اجرا است
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ چک کردن ریپازیتوری
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ آپلود فایل APK موجود
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: build/apk/*.apk  # مسیر به تمام APK های موجود در build/apk اشاره می‌کند
