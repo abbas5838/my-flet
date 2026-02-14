@@ -25,7 +25,11 @@ jobs:
       - name: Build APK
         run: |
           yes | flet build apk --verbose
-
+            --project-name myapp \
+            --product riazi1 \
+            --icon main.ico \
+            --assets assets \
+            --verbose
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
